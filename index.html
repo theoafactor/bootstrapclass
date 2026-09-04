@@ -74,27 +74,47 @@
         <div class="row">
             <div class="col-8 bg-success text-white">First</div>
             <div class="col-4 bg-light">
-                <div class="card bg-dark text-white">
+                <div class="card bg-white">
                     <div class="card-body">
                         <h6>Register new Account</h6>
-                        <form class="mt-4">
+                        <form class="mt-4" method="POST" id="register-form">
+                          <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">First name</label>
+                                <input type="text" class="form-control" name="firstname" placeholder="Enter first name" maxlength="10" minlength="2">
+                                <div id="firstnameHelp" class="form-text"></div>
+                              </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Last name</label>
+                                <input type="text" placeholder="Enter last name" name="lastname" class="form-control" aria-describedby="lastnameHelp">
+                                <div id="lastnameHelp" class="form-text"></div>
+                            </div>
+
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <input type="email" placeholder="Enter Email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
+                                <input type="password" class="form-control" name="password" id="exampleInputPassword1">
                             </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Register</button>
 
-                            <hr>
-                            <h6>Registered already? <a href="#" class="text-decoration-none">Log in instead</a></h6>
+                             <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Enter Bio</label>
+                                <textarea class="form-control" maxlength="500" minlength="500" name="bio" rows="10" placeholder="Enter bio"></textarea>
+                            </div>
+                            
+                            <div class="mt-4">
+                               
+                            <button type="submit" class="btn btn-primary"> 
+                              <span class="spinner-border spinner-border-sm" role="status" id="register-spinner">
+                                  <span class="visually-hidden">Loading...</span>
+                                </span> Register</button>
+                            </div>
+
+                            <hr style="color: red;">
+                            <h6>Registered already? <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#login-modal">Log in instead</a></h6>
                     
                             </form>
                     </div>
@@ -102,7 +122,53 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Modals -->
+    <div class="modal" tabindex="-1" id="login-modal">
+  <div class="modal-dialog">
+    <div class="modal-content bg-black text-white">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Sign In</h5>
+        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close">X</button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <form class="form">
+             <div class="mb-3">
+                 <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control">
+             </div>
+
+             <div class="mb-3">
+                 <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control">
+             </div>
+
+               <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                            </div>
+
+              <div class="mb-3">
+                <button class="btn btn-md btn-danger">Log in</button>
+             </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- End of Modals-->
     
     <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="js/axios.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
+
