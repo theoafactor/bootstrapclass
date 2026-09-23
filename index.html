@@ -77,7 +77,7 @@
                 <div class="card bg-white">
                     <div class="card-body">
                         <h6>Register new Account</h6>
-                        <form class="mt-4" method="POST" id="register-form">
+                        <form class="mt-4" method="POST" id="register-form" enctype="multipart/form-data">
                           <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">First name</label>
                                 <input type="text" class="form-control" name="firstname" placeholder="Enter first name" maxlength="10" minlength="2">
@@ -100,9 +100,15 @@
                                 <input type="password" class="form-control" name="password" id="exampleInputPassword1">
                             </div>
 
+                            <!-- Uploading files -->
+                             <div class="mb-3">
+                                <label for="exampleInputID" class="form-label d-block">Upload ID</label>
+                                <input type="file" name="id">
+                            </div>
+
                              <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Enter Bio</label>
-                                <textarea class="form-control" maxlength="500" minlength="500" name="bio" rows="10" placeholder="Enter bio"></textarea>
+                                <textarea class="form-control" maxlength="500" minlength="10" name="bio" rows="10" placeholder="Enter bio"></textarea>
                             </div>
                             
                             <div class="mt-4">
