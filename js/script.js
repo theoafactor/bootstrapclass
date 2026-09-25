@@ -15,6 +15,7 @@ form.addEventListener("submit", async function(event){
 
     let bio = form.bio.value.trim();
 
+    let id = document.querySelector("#fileId")
     if(firstname.length == 0){
         document.querySelector("#firstnameHelp").innerHTML = "<div class='alert alert-danger p-1'><small>You did not enter firstname</small></div>"
     }
@@ -23,15 +24,20 @@ form.addEventListener("submit", async function(event){
         document.querySelector("#lastnameHelp").innerHTML = "<div class='alert alert-danger p-1'><small>You did not enter lastname</small></div>"
     }
 
+    let formdata = new FormData();
+
+    formdata.append("firstname", firstname);
+    formdata.append("lastname", lastname);
+    formdata.append("email", email);
+    formdata.append("password", password);
+    formdata.append("bio", bio);
+    formdata.append("id", id.files[0]);
+
+
+
 
     // send your request to the backend
-    let result = await axios.post("http://localhost:3000/register", {
-        firstname,
-        lastname,
-        email,
-        password,
-        bio
-    });
+    let result = await axios.post("http://localhost:3000/register", formdata);
 
 
     // console.log(result);
